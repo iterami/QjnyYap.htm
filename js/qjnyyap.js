@@ -43,8 +43,8 @@ function draw(){
 function logic(){
     for(var vertex in vertices){
         vertices[vertex]['rotation'] += rotation_rate * (25 - vertices[vertex]['layer']);
-        if(vertices[vertex]['rotation'] > Math.pi * 2){
-            vertices[vertex]['rotation'] -= Math.pi * 2;
+        if(vertices[vertex]['rotation'] > pi_times_two){
+            vertices[vertex]['rotation'] -= pi_times_two;
         }
 
         vertices[vertex]['x'] = vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']) - 5;
@@ -67,6 +67,7 @@ function resize(){
 var buffer = document.getElementById('buffer').getContext('2d');
 var canvas = document.getElementById('canvas').getContext('2d');
 var height = 0;
+var pi_times_two = Math.pi * 2;
 var rotation_rate = .005;
 var vertices = [];
 var width = 0;
