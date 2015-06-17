@@ -7,5 +7,6 @@ QjnyYap
 
 Action        | Key
 --------------|----
-Less Rain     | -
-More Rain     | +
+Rotation--    | -
+Rotation++    | +
+Stop Rotation | ESC
