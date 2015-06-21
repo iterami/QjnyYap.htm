@@ -6,7 +6,7 @@ function draw(){
       height
     );
 
-    buffer.save()
+    buffer.save();
 
     buffer.translate(
       x,
