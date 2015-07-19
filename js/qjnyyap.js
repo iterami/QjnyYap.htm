@@ -81,11 +81,11 @@ var y = 0;
 window.onkeydown = function(e){
     var key = e.keyCode || e.which;
 
-    // +: rotation_rate += 0.001;
+    // +: increase rotation_rate.
     if(key == 187){
         rotation_rate += 0.001;
 
-    // -: rotation_rate -= 0.001;
+    // -: decrease rotation_rate.
     }else if(key == 189){
         rotation_rate -= 0.001;
 
