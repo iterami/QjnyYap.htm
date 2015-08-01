@@ -20,8 +20,8 @@ function draw(){
         buffer.fillRect(
           vertices[vertex]['x'],
           vertices[vertex]['y'],
-          10,
-          10
+          vertices[vertex]['width'],
+          vertices[vertex]['height']
         );
     }
 
@@ -104,8 +104,10 @@ window.onload = function(e){
         do{
             vertices.push({
               'color': '#fff',
+              'height': 10,
               'layer': loop_counter + 1,
               'rotation': inner_counter,
+              'width': 10,
               'x': 0,
               'y': 0,
             });
