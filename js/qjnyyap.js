@@ -87,11 +87,11 @@ window.onkeydown = function(e){
 
     // +: increase rotation_rate.
     if(key === 187){
-        rotation_rate += 0.001;
+        rotation_rate += .001;
 
     // -: decrease rotation_rate.
     }else if(key === 189){
-        rotation_rate -= 0.001;
+        rotation_rate -= .001;
 
     // ESC: rotation_rate = 0;
     }else if(key === 27){

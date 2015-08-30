@@ -7,6 +7,6 @@ QjnyYap
 
 Action        | Key
 --------------|----
-Rotation--    | -
-Rotation++    | +
+Rotation --   | -
+Rotation ++   | +
 Stop Rotation | ESC
