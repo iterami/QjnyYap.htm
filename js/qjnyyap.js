@@ -8,13 +8,6 @@ function draw(){
       height
     );
 
-    buffer.save();
-
-    buffer.translate(
-      x,
-      y
-    );
-
     for(var vertex in vertices){
         buffer.fillStyle = vertices[vertex]['color'];
         buffer.fillRect(
@@ -24,8 +17,6 @@ function draw(){
           vertices[vertex]['height']
         );
     }
-
-    buffer.restore();
 
     canvas.clearRect(
       0,
@@ -51,8 +42,8 @@ function logic(){
             vertices[vertex]['rotation'] += tau;
         }
 
-        vertices[vertex]['x'] = vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']) - 5;
-        vertices[vertex]['y'] = vertices[vertex]['layer'] * 10 * Math.sin(vertices[vertex]['rotation']) - 5;
+        vertices[vertex]['x'] = x + vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']) - 5;
+        vertices[vertex]['y'] = y + vertices[vertex]['layer'] * 10 * Math.sin(vertices[vertex]['rotation']) - 5;
     }
 }
 
