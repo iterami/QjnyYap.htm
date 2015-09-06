@@ -18,6 +18,13 @@ function draw(){
         );
     }
 
+    // Draw vertices_amount and lineWidth.
+    buffer.fillText(
+      rotation_rate_display,
+      0,
+      25
+    );
+
     canvas.clearRect(
       0,
       0,
@@ -57,6 +64,9 @@ function resize(){
     document.getElementById('buffer').width = width;
     document.getElementById('canvas').width = width;
     x = width / 2;
+
+    buffer.fillStyle = '#fff';
+    buffer.font = '23pt sans-serif';
 }
 
 var buffer = document.getElementById('buffer').getContext('2d', {
@@ -67,6 +77,7 @@ var canvas = document.getElementById('canvas').getContext('2d', {
 });
 var height = 0;
 var rotation_rate = .005;
+var rotation_rate_display = '5';
 var tau = Math.PI * 2;
 var vertices = [];
 var width = 0;
@@ -88,6 +99,8 @@ window.onkeydown = function(e){
     }else if(key === 27){
         rotation_rate = 0;
     }
+
+    rotation_rate_display = (rotation_rate * 1000).toFixed(0);
 };
 
 window.onload = function(e){
