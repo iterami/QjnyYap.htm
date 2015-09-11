@@ -54,6 +54,14 @@ function logic(){
     }
 }
 
+function random_hex(){
+    var choices = '0123456789abcdef';
+    return '#'
+      + choices.charAt(Math.floor(Math.random() * 16))
+      + choices.charAt(Math.floor(Math.random() * 16))
+      + choices.charAt(Math.floor(Math.random() * 16));
+}
+
 function resize(){
     height = window.innerHeight;
     document.getElementById('buffer').height = height;
@@ -111,7 +119,7 @@ window.onload = function(e){
         var inner_counter = loop_counter;
         do{
             vertices.push({
-              'color': '#fff',
+              'color': random_hex(),
               'height': 10,
               'layer': loop_counter + 1,
               'rotation': inner_counter,
