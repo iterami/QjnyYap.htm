@@ -19,6 +19,7 @@ function draw(){
     }
 
     // Draw vertices_amount and lineWidth.
+    buffer.fillStyle = '#fff';
     buffer.fillText(
       rotation_rate_display,
       0,
