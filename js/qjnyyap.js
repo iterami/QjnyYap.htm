@@ -1,13 +1,6 @@
 'use strict';
 
-function draw(){
-    buffer.clearRect(
-      0,
-      0,
-      width,
-      height
-    );
-
+function draw_logic(){
     for(var vertex in vertices){
         buffer.fillStyle = vertices[vertex]['color'];
         buffer.fillRect(
@@ -25,20 +18,6 @@ function draw(){
       0,
       25
     );
-
-    canvas.clearRect(
-      0,
-      0,
-      width,
-      height
-    );
-    canvas.drawImage(
-      document.getElementById('buffer'),
-      0,
-      0
-    );
-
-    window.requestAnimationFrame(draw);
 }
 
 function logic(){
@@ -63,35 +42,15 @@ function random_hex(){
       + choices.charAt(Math.floor(Math.random() * 16));
 }
 
-function resize(){
-    height = window.innerHeight;
-    document.getElementById('buffer').height = height;
-    document.getElementById('canvas').height = height;
-    y = height / 2;
-
-    width = window.innerWidth;
-    document.getElementById('buffer').width = width;
-    document.getElementById('canvas').width = width;
-    x = width / 2;
-
+function resize_logic(){
     buffer.fillStyle = '#fff';
     buffer.font = '23pt sans-serif';
 }
 
-var buffer = document.getElementById('buffer').getContext('2d', {
-  'alpha': false,
-});
-var canvas = document.getElementById('canvas').getContext('2d', {
-  'alpha': false,
-});
-var height = 0;
 var rotation_rate = .005;
 var rotation_rate_display = '5';
 var tau = Math.PI * 2;
 var vertices = [];
-var width = 0;
-var x = 0;
-var y = 0;
 
 window.onkeydown = function(e){
     var key = e.keyCode || e.which;
@@ -113,7 +72,7 @@ window.onkeydown = function(e){
 };
 
 window.onload = function(e){
-    resize();
+    init_canvas();
 
     var loop_counter = 23;
     do{
@@ -130,12 +89,6 @@ window.onload = function(e){
             });
         }while(inner_counter--);
     }while(loop_counter--);
-
-    window.requestAnimationFrame(draw);
-    window.setInterval(
-      logic,
-      30
-    );
 };
 
 window.onresize = resize;
