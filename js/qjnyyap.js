@@ -90,5 +90,3 @@ window.onload = function(e){
         }while(inner_counter--);
     }while(loop_counter--);
 };
-
-window.onresize = resize;
