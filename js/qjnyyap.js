@@ -52,27 +52,30 @@ var rotation_rate_display = '5';
 var tau = Math.PI * 2;
 var vertices = [];
 
-window.onkeydown = function(e){
-    var key = e.keyCode || e.which;
-
-    // +: increase rotation_rate.
-    if(key === 187){
-        rotation_rate += .001;
-
-    // -: decrease rotation_rate.
-    }else if(key === 189){
-        rotation_rate -= .001;
-
-    // ESC: rotation_rate = 0;
-    }else if(key === 27){
-        rotation_rate = 0;
-    }
-
-    rotation_rate_display = (rotation_rate * 1000).toFixed(0);
-};
-
 window.onload = function(e){
     init_canvas();
+    init_input(
+      {
+        27: {
+          'todo': function(){
+              rotation_rate = 0;
+              rotation_rate_display = 0;
+          },
+        },
+        187: {
+          'todo': function(){
+              rotation_rate += .001;
+              rotation_rate_display = (rotation_rate * 1000).toFixed(0);;
+          },
+        },
+        189: {
+          'todo': function(){
+              rotation_rate -= .001;
+              rotation_rate_display = (rotation_rate * 1000).toFixed(0);;
+          },
+        },
+      }
+    );
 
     var loop_counter = 23;
     do{
