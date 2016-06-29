@@ -44,7 +44,7 @@ function random_hex(){
 
 function resize_logic(){
     buffer.fillStyle = '#fff';
-    buffer.font = '23pt sans-serif';
+    buffer.font = font;
 }
 
 var rotation_rate = .005;
