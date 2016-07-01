@@ -42,11 +42,6 @@ function random_hex(){
       + choices.charAt(Math.floor(Math.random() * 16));
 }
 
-function resize_logic(){
-    buffer.fillStyle = '#fff';
-    buffer.font = font;
-}
-
 var rotation_rate = .005;
 var rotation_rate_display = '5';
 var tau = Math.PI * 2;
