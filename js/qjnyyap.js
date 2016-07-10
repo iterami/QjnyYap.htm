@@ -49,7 +49,7 @@ var vertices = [];
 
 window.onload = function(e){
     init_canvas();
-    init_input(
+    input_init(
       {
         27: {
           'todo': function(){
