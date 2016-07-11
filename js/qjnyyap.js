@@ -2,8 +2,8 @@
 
 function draw_logic(){
     for(var vertex in vertices){
-        buffer.fillStyle = vertices[vertex]['color'];
-        buffer.fillRect(
+        canvas_buffer.fillStyle = vertices[vertex]['color'];
+        canvas_buffer.fillRect(
           vertices[vertex]['x'],
           vertices[vertex]['y'],
           vertices[vertex]['width'],
@@ -12,8 +12,8 @@ function draw_logic(){
     }
 
     // Draw rotation_rate_display.
-    buffer.fillStyle = '#fff';
-    buffer.fillText(
+    canvas_buffer.fillStyle = '#fff';
+    canvas_buffer.fillText(
       rotation_rate_display,
       0,
       25
@@ -29,8 +29,8 @@ function logic(){
             vertices[vertex]['rotation'] += tau;
         }
 
-        vertices[vertex]['x'] = x + vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']) - 5;
-        vertices[vertex]['y'] = y + vertices[vertex]['layer'] * 10 * Math.sin(vertices[vertex]['rotation']) - 5;
+        vertices[vertex]['x'] = canvas_x + vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']) - 5;
+        vertices[vertex]['y'] = canvas_y + vertices[vertex]['layer'] * 10 * Math.sin(vertices[vertex]['rotation']) - 5;
     }
 }
 
@@ -48,7 +48,7 @@ var tau = Math.PI * 2;
 var vertices = [];
 
 window.onload = function(e){
-    init_canvas();
+    canvas_init();
     input_init(
       {
         27: {
