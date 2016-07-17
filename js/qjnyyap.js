@@ -34,14 +34,6 @@ function logic(){
     }
 }
 
-function random_hex(){
-    var choices = '0123456789abcdef';
-    return '#'
-      + choices.charAt(Math.floor(Math.random() * 16))
-      + choices.charAt(Math.floor(Math.random() * 16))
-      + choices.charAt(Math.floor(Math.random() * 16));
-}
-
 var rotation_rate = .005;
 var rotation_rate_display = '5';
 var tau = Math.PI * 2;
