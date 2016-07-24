@@ -23,10 +23,10 @@ function draw_logic(){
 function logic(){
     for(var vertex in vertices){
         vertices[vertex]['rotation'] += rotation_rate * (25 - vertices[vertex]['layer']);
-        if(vertices[vertex]['rotation'] >= tau){
-            vertices[vertex]['rotation'] -= tau;
+        if(vertices[vertex]['rotation'] >= math_tau){
+            vertices[vertex]['rotation'] -= math_tau;
         }else if(vertices[vertex]['rotation'] < 0){
-            vertices[vertex]['rotation'] += tau;
+            vertices[vertex]['rotation'] += math_tau;
         }
 
         vertices[vertex]['x'] = canvas_x + vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']) - 5;
