@@ -36,7 +36,6 @@ function logic(){
 
 var rotation_rate = .005;
 var rotation_rate_display = '5';
-var tau = Math.PI * 2;
 var vertices = [];
 
 window.onload = function(e){
