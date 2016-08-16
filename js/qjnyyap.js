@@ -34,8 +34,13 @@ function logic(){
     }
 }
 
-var rotation_rate = .005;
-var rotation_rate_display = '5';
+function rotate(amount){
+    rotation_rate += amount;
+    rotation_rate_display = (rotation_rate * 1000).toFixed(0);
+}
+
+var rotation_rate = 0;
+var rotation_rate_display = '';
 var vertices = [];
 
 window.onload = function(e){
@@ -44,20 +49,17 @@ window.onload = function(e){
       {
         27: {
           'todo': function(){
-              rotation_rate = 0;
-              rotation_rate_display = 0;
+              rotate(-rotation_rate);
           },
         },
         187: {
           'todo': function(){
-              rotation_rate += .001;
-              rotation_rate_display = (rotation_rate * 1000).toFixed(0);;
+              rotate(.001);
           },
         },
         189: {
           'todo': function(){
-              rotation_rate -= .001;
-              rotation_rate_display = (rotation_rate * 1000).toFixed(0);;
+              rotate(-.001);
           },
         },
       }
@@ -78,4 +80,6 @@ window.onload = function(e){
             });
         }while(inner_counter--);
     }while(loop_counter--);
+
+    rotate(.005);
 };
