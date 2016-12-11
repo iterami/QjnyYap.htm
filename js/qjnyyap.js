@@ -29,9 +29,14 @@ function logic(){
             vertices[vertex]['rotation'] += math_tau;
         }
 
-        vertices[vertex]['x'] = canvas_x + vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']) - 5;
-        vertices[vertex]['y'] = canvas_y + vertices[vertex]['layer'] * 10 * Math.sin(vertices[vertex]['rotation']) - 5;
+        vertices[vertex]['x'] = canvas_x_five + vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']);
+        vertices[vertex]['y'] = canvas_y_five + vertices[vertex]['layer'] * 10 * Math.sin(vertices[vertex]['rotation']);
     }
+}
+
+function resize_logic(){
+    canvas_x_five = canvas_x - 5;
+    canvas_y_five = canvas_y - 5;
 }
 
 function rotate(amount){
@@ -39,6 +44,8 @@ function rotate(amount){
     rotation_rate_display = (rotation_rate * 1000).toFixed(0);
 }
 
+var canvas_x_five = 0;
+var canvas_y_five = 0;
 var rotation_rate = 0;
 var rotation_rate_display = '';
 var vertices = [];
