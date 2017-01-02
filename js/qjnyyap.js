@@ -52,8 +52,8 @@ var vertices = [];
 
 window.onload = function(e){
     canvas_init();
-    input_init(
-      {
+    input_init({
+      'keybinds': {
         27: {
           'todo': function(){
               rotate(-rotation_rate);
@@ -69,8 +69,8 @@ window.onload = function(e){
               rotate(-.001);
           },
         },
-      }
-    );
+      },
+    });
 
     var loop_counter = 23;
     do{
