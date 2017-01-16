@@ -59,14 +59,14 @@ window.onload = function(e){
               rotate(-rotation_rate);
           },
         },
-        187: {
-          'todo': function(){
-              rotate(.001);
-          },
-        },
-        189: {
+        65: {
           'todo': function(){
               rotate(-.001);
+          },
+        },
+        68: {
+          'todo': function(){
+              rotate(.001);
           },
         },
       },
