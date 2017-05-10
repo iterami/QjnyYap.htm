@@ -77,7 +77,7 @@ window.onload = function(e){
         var inner_counter = loop_counter;
         do{
             vertices.push({
-              'color': '#' + random_hex(),
+              'color': '#' + core_random_hex(),
               'height': 10,
               'layer': loop_counter + 1,
               'rotation': inner_counter,
