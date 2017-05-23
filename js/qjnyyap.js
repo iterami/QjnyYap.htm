@@ -52,7 +52,7 @@ var vertices = [];
 
 window.onload = function(e){
     canvas_init();
-    input_init({
+    core_input_init({
       'keybinds': {
         27: {
           'todo': function(){
