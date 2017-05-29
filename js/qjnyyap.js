@@ -34,25 +34,8 @@ function logic(){
     }
 }
 
-function resize_logic(){
-    canvas_x_five = canvas_x - 5;
-    canvas_y_five = canvas_y - 5;
-}
-
-function rotate(amount){
-    rotation_rate += amount;
-    rotation_rate_display = (rotation_rate * 1000).toFixed(0);
-}
-
-var canvas_x_five = 0;
-var canvas_y_five = 0;
-var rotation_rate = 0;
-var rotation_rate_display = '';
-var vertices = [];
-
-window.onload = function(e){
-    canvas_init();
-    core_input_init({
+function repo_init(){
+    core_input_binds_add({
       'keybinds': {
         27: {
           'todo': function(){
@@ -71,6 +54,7 @@ window.onload = function(e){
         },
       },
     });
+    canvas_init();
 
     var loop_counter = 23;
     do{
@@ -89,4 +73,20 @@ window.onload = function(e){
     }while(loop_counter--);
 
     rotate(.005);
-};
+}
+
+function resize_logic(){
+    canvas_x_five = canvas_x - 5;
+    canvas_y_five = canvas_y - 5;
+}
+
+function rotate(amount){
+    rotation_rate += amount;
+    rotation_rate_display = (rotation_rate * 1000).toFixed(0);
+}
+
+var canvas_x_five = 0;
+var canvas_y_five = 0;
+var rotation_rate = 0;
+var rotation_rate_display = '';
+var vertices = [];
