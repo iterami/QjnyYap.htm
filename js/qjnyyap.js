@@ -35,7 +35,7 @@ function logic(){
 }
 
 function repo_init(){
-    core_input_binds_add({
+    core_events_bind({
       'keybinds': {
         27: {
           'todo': function(){
