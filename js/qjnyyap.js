@@ -34,14 +34,13 @@ function logic(){
     }
 }
 
+function repo_escape(){
+    rotate(-rotation_rate);
+}
+
 function repo_init(){
     core_events_bind({
       'keybinds': {
-        27: {
-          'todo': function(){
-              rotate(-rotation_rate);
-          },
-        },
         65: {
           'todo': function(){
               rotate(-.001);
