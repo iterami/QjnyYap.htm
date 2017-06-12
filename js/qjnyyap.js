@@ -34,10 +34,6 @@ function logic(){
     }
 }
 
-function repo_escape(){
-    rotate(-rotation_rate);
-}
-
 function repo_init(){
     core_repo_init({
       'keybinds': {
