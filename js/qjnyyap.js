@@ -10,14 +10,6 @@ function draw_logic(){
           vertices[vertex]['height']
         );
     }
-
-    // Draw rotation_rate_display.
-    canvas_buffer.fillStyle = '#fff';
-    canvas_buffer.fillText(
-      rotation_rate_display,
-      0,
-      25
-    );
 }
 
 function logic(){
@@ -32,6 +24,12 @@ function logic(){
         vertices[vertex]['x'] = canvas_x_five + vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']);
         vertices[vertex]['y'] = canvas_y_five + vertices[vertex]['layer'] * 10 * Math.sin(vertices[vertex]['rotation']);
     }
+
+    core_ui_update({
+      'ids': {
+        'rotation': rotation_rate_display,
+      },
+    });
 }
 
 function repo_init(){
@@ -49,6 +47,7 @@ function repo_init(){
         },
       },
       'title': 'QjnyYap.htm',
+      'ui': '<input id=ui-rotation>Rotation',
     });
     canvas_init();
 
