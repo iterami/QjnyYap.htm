@@ -1,28 +1,28 @@
 'use strict';
 
 function draw_logic(){
-    for(var vertex in vertices){
-        canvas_buffer.fillStyle = vertices[vertex]['color'];
+    for(var entity in core_entities){
+        canvas_buffer.fillStyle = core_entities[entity]['color'];
         canvas_buffer.fillRect(
-          vertices[vertex]['x'],
-          vertices[vertex]['y'],
-          vertices[vertex]['width'],
-          vertices[vertex]['height']
+          core_entities[entity]['x'],
+          core_entities[entity]['y'],
+          core_entities[entity]['width'],
+          core_entities[entity]['height']
         );
     }
 }
 
 function logic(){
-    for(var vertex in vertices){
-        vertices[vertex]['rotation'] += rotation_rate * (25 - vertices[vertex]['layer']);
-        if(vertices[vertex]['rotation'] >= math_tau){
-            vertices[vertex]['rotation'] -= math_tau;
-        }else if(vertices[vertex]['rotation'] < 0){
-            vertices[vertex]['rotation'] += math_tau;
+    for(var entity in core_entities){
+        core_entities[entity]['rotation'] += rotation_rate * (25 - core_entities[entity]['layer']);
+        if(core_entities[entity]['rotation'] >= math_tau){
+            core_entities[entity]['rotation'] -= math_tau;
+        }else if(core_entities[entity]['rotation'] < 0){
+            core_entities[entity]['rotation'] += math_tau;
         }
 
-        vertices[vertex]['x'] = canvas_x_five + vertices[vertex]['layer'] * 10 * Math.cos(vertices[vertex]['rotation']);
-        vertices[vertex]['y'] = canvas_y_five + vertices[vertex]['layer'] * 10 * Math.sin(vertices[vertex]['rotation']);
+        core_entities[entity]['x'] = canvas_x_five + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
+        core_entities[entity]['y'] = canvas_y_five + core_entities[entity]['layer'] * 10 * Math.sin(core_entities[entity]['rotation']);
     }
 
     core_ui_update({
@@ -55,14 +55,16 @@ function repo_init(){
     do{
         var inner_counter = loop_counter;
         do{
-            vertices.push({
-              'color': '#' + core_random_hex(),
-              'height': 10,
-              'layer': loop_counter + 1,
-              'rotation': inner_counter,
-              'width': 10,
-              'x': 0,
-              'y': 0,
+            core_entity_create({
+              'properties': {
+                'color': '#' + core_random_hex(),
+                'height': 10,
+                'layer': loop_counter + 1,
+                'rotation': inner_counter,
+                'width': 10,
+                'x': 0,
+                'y': 0,
+              },
             });
         }while(inner_counter--);
     }while(loop_counter--);
@@ -84,4 +86,3 @@ var canvas_x_five = 0;
 var canvas_y_five = 0;
 var rotation_rate = 0;
 var rotation_rate_display = '';
-var vertices = [];
