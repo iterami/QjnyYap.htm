@@ -62,8 +62,6 @@ function repo_init(){
                 'layer': loop_counter + 1,
                 'rotation': inner_counter,
                 'width': 10,
-                'x': 0,
-                'y': 0,
               },
             });
         }while(inner_counter--);
