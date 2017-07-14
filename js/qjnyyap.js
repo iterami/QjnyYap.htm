@@ -50,24 +50,6 @@ function repo_init(){
       'ui': '<input id=ui-rotation>Rotation',
     });
     canvas_init();
-
-    var loop_counter = 23;
-    do{
-        var inner_counter = loop_counter;
-        do{
-            core_entity_create({
-              'properties': {
-                'color': '#' + core_random_hex(),
-                'height': 10,
-                'layer': loop_counter + 1,
-                'rotation': inner_counter,
-                'width': 10,
-              },
-            });
-        }while(inner_counter--);
-    }while(loop_counter--);
-
-    rotate(.005);
 }
 
 function resize_logic(){
