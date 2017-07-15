@@ -47,7 +47,7 @@ function repo_init(){
         },
       },
       'title': 'QjnyYap.htm',
-      'ui': '<input id=ui-rotation>Rotation',
+      'ui': '<span id=ui-rotation></span> Rotation',
     });
     canvas_init();
 }
