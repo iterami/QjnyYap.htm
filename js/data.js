@@ -19,3 +19,8 @@ function load_data(){
 
     rotate(.005);
 }
+
+function rotate(amount){
+    rotation_rate += amount;
+    rotation_rate_display = (rotation_rate * 1000).toFixed(0);
+}
