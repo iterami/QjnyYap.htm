@@ -21,8 +21,8 @@ function logic(){
             core_entities[entity]['rotation'] += math_tau;
         }
 
-        core_entities[entity]['x'] = canvas_x_five + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
-        core_entities[entity]['y'] = canvas_y_five + core_entities[entity]['layer'] * 10 * Math.sin(core_entities[entity]['rotation']);
+        core_entities[entity]['x'] = canvas_x + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
+        core_entities[entity]['y'] = canvas_y + core_entities[entity]['layer'] * 10 * Math.sin(core_entities[entity]['rotation']);
     }
 
     core_ui_update({
@@ -52,12 +52,5 @@ function repo_init(){
     canvas_init();
 }
 
-function resize_logic(){
-    canvas_x_five = canvas_x - 5;
-    canvas_y_five = canvas_y - 5;
-}
-
-var canvas_x_five = 0;
-var canvas_y_five = 0;
 var rotation_rate = 0;
 var rotation_rate_display = '';
