@@ -1,29 +1,39 @@
 'use strict';
 
 function draw_logic(){
-    for(var entity in core_entities){
-        canvas_buffer.fillStyle = core_entities[entity]['color'];
-        canvas_buffer.fillRect(
-          core_entities[entity]['x'],
-          core_entities[entity]['y'],
-          core_entities[entity]['width'],
-          core_entities[entity]['height']
-        );
-    }
+    core_group_modify({
+      'groups': [
+        'canvas',
+      ],
+      'todo': function(entity){
+          canvas_buffer.fillStyle = core_entities[entity]['color'];
+          canvas_buffer.fillRect(
+            core_entities[entity]['x'],
+            core_entities[entity]['y'],
+            core_entities[entity]['width'],
+            core_entities[entity]['height']
+          );
+      },
+    });
 }
 
 function logic(){
-    for(var entity in core_entities){
-        core_entities[entity]['rotation'] += rotation_rate * (25 - core_entities[entity]['layer']);
-        if(core_entities[entity]['rotation'] >= math_tau){
-            core_entities[entity]['rotation'] -= math_tau;
-        }else if(core_entities[entity]['rotation'] < 0){
-            core_entities[entity]['rotation'] += math_tau;
-        }
+    core_group_modify({
+      'groups': [
+        'canvas',
+      ],
+      'todo': function(entity){
+          core_entities[entity]['rotation'] += rotation_rate * (25 - core_entities[entity]['layer']);
+          if(core_entities[entity]['rotation'] >= math_tau){
+              core_entities[entity]['rotation'] -= math_tau;
+          }else if(core_entities[entity]['rotation'] < 0){
+              core_entities[entity]['rotation'] += math_tau;
+          }
 
-        core_entities[entity]['x'] = canvas_x + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
-        core_entities[entity]['y'] = canvas_y + core_entities[entity]['layer'] * 10 * Math.sin(core_entities[entity]['rotation']);
-    }
+          core_entities[entity]['x'] = canvas_x + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
+          core_entities[entity]['y'] = canvas_y + core_entities[entity]['layer'] * 10 * Math.sin(core_entities[entity]['rotation']);
+      },
+    });
 
     core_ui_update({
       'ids': {
