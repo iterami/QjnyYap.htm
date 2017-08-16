@@ -44,6 +44,7 @@ function logic(){
 
 function repo_init(){
     core_repo_init({
+      'info': '<input id=reset type=button value=Reset>',
       'keybinds': {
         65: {
           'todo': function(){
@@ -56,10 +57,20 @@ function repo_init(){
           },
         },
       },
+      'storage': {
+        'rings': 23,
+      },
+      'storage-menu': '<table><tr><td><input id=rings><td>Rings</table>',
       'title': 'QjnyYap.htm',
       'ui': '<span id=ui-rotation></span> Rotation',
     });
     canvas_init();
+
+    document.getElementById('reset').onclick = function(){
+        canvas_setmode({
+          'newgame': true,
+        });
+    };
 }
 
 var rotation_rate = 0;

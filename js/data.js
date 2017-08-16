@@ -1,7 +1,10 @@
 'use strict';
 
 function load_data(){
-    var loop_counter = 23;
+    var loop_counter = Math.max(
+      core_storage_data['rings'] - 1,
+      0
+    );
     do{
         var inner_counter = loop_counter;
         do{
@@ -17,7 +20,7 @@ function load_data(){
         }while(inner_counter--);
     }while(loop_counter--);
 
-    rotate(.005);
+    rotate(-rotation_rate + .005);
 }
 
 function rotate(amount){
