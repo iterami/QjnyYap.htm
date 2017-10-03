@@ -20,10 +20,5 @@ function load_data(){
         }while(inner_counter--);
     }while(loop_counter--);
 
-    rotate(-rotation_rate + .005);
-}
-
-function rotate(amount){
-    rotation_rate += amount;
-    rotation_rate_display = (rotation_rate * 1000).toFixed(0);
+    rotation_rate += .005;
 }

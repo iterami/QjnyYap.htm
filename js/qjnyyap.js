@@ -27,7 +27,7 @@ function logic(){
         'canvas',
       ],
       'todo': function(entity){
-          core_entities[entity]['rotation'] += rotation_rate * (25 - core_entities[entity]['layer']);
+          core_entities[entity]['rotation'] += rotation_rate * (core_storage_data['rings'] - core_entities[entity]['layer'] + 1);
           if(core_entities[entity]['rotation'] >= math_tau){
               core_entities[entity]['rotation'] -= math_tau;
           }else if(core_entities[entity]['rotation'] < 0){
@@ -41,7 +41,7 @@ function logic(){
 
     core_ui_update({
       'ids': {
-        'rotation': rotation_rate_display,
+        'rotation': rotation_rate.toFixed(4),
       },
     });
 }
@@ -50,14 +50,14 @@ function repo_init(){
     core_repo_init({
       'info': '<input id=reset type=button value=Reset>',
       'keybinds': {
-        65: {
+        83: {
           'todo': function(){
-              rotate(-.001);
+              rotation_rate -= .0001;
           },
         },
-        68: {
+        87: {
           'todo': function(){
-              rotate(.001);
+              rotation_rate += .0001;
           },
         },
       },
@@ -78,4 +78,3 @@ function repo_init(){
 }
 
 var rotation_rate = 0;
-var rotation_rate_display = '';
