@@ -34,8 +34,8 @@ function logic(){
               core_entities[entity]['rotation'] += math_tau;
           }
 
-          core_entities[entity]['x'] = canvas_x + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
-          core_entities[entity]['y'] = canvas_y + core_entities[entity]['layer'] * 10 * Math.sin(core_entities[entity]['rotation']);
+          core_entities[entity]['x'] = canvas_properties['width-half'] + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
+          core_entities[entity]['y'] = canvas_properties['height-half'] + core_entities[entity]['layer'] * 10 * Math.sin(core_entities[entity]['rotation']);
       },
     });
 
