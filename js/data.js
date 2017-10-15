@@ -20,5 +20,7 @@ function load_data(){
         }while(inner_counter--);
     }while(loop_counter--);
 
-    rotation_rate += .005;
+    rotation_rate = .005;
 }
+
+var rotation_rate = 0;

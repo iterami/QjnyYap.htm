@@ -49,6 +49,15 @@ function logic(){
 function repo_init(){
     core_repo_init({
       'info': '<input id=reset type=button value=Reset>',
+      'info-events': {
+        'reset': {
+          'todo': function(){
+              canvas_setmode({
+                'newgame': true,
+              });
+          },
+        },
+      },
       'keybinds': {
         83: {
           'todo': function(){
@@ -69,12 +78,4 @@ function repo_init(){
       'ui': '<span id=ui-rotation></span> Rotation',
     });
     canvas_init();
-
-    document.getElementById('reset').onclick = function(){
-        canvas_setmode({
-          'newgame': true,
-        });
-    };
 }
-
-var rotation_rate = 0;
