@@ -48,6 +48,9 @@ function logic(){
 
 function repo_init(){
     core_repo_init({
+      'globals': {
+        'rotation_rate': 0,
+      },
       'info': '<input id=reset type=button value=Reset>',
       'info-events': {
         'reset': {

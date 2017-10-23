@@ -22,5 +22,3 @@ function load_data(){
 
     rotation_rate = .005;
 }
-
-var rotation_rate = 0;
