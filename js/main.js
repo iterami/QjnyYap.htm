@@ -48,19 +48,19 @@ function logic(){
 
 function repo_init(){
     core_repo_init({
-      'globals': {
-        'rotation_rate': 0,
-      },
-      'info': '<input id=reset type=button value=Reset>',
-      'info-events': {
+      'events': {
         'reset': {
-          'todo': function(){
+          'onclick': function(){
               canvas_setmode({
                 'newgame': true,
               });
           },
         },
       },
+      'globals': {
+        'rotation_rate': 0,
+      },
+      'info': '<input id=reset type=button value=Reset>',
       'keybinds': {
         83: {
           'todo': function(){
