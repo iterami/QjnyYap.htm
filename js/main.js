@@ -22,6 +22,13 @@ function draw_logic(){
 }
 
 function logic(){
+    if(core_keys[core_storage_data['move-↑']]['state']){
+        rotation_rate += .0001;
+    }
+    if(core_keys[core_storage_data['move-↓']]['state']){
+        rotation_rate -= .0001;
+    }
+
     core_group_modify({
       'groups': [
         'canvas',
@@ -61,18 +68,6 @@ function repo_init(){
         'rotation_rate': 0,
       },
       'info': '<input id=reset type=button value=Reset>',
-      'keybinds': {
-        83: {
-          'todo': function(){
-              rotation_rate -= .0001;
-          },
-        },
-        87: {
-          'todo': function(){
-              rotation_rate += .0001;
-          },
-        },
-      },
       'storage': {
         'rings': 23,
       },
