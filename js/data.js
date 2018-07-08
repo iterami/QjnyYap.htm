@@ -1,12 +1,12 @@
 'use strict';
 
 function load_data(){
-    var loop_counter = Math.max(
+    let loop_counter = Math.max(
       core_storage_data['rings'] - 1,
       0
     );
     do{
-        var inner_counter = loop_counter;
+        let inner_counter = loop_counter;
         do{
             core_entity_create({
               'properties': {
