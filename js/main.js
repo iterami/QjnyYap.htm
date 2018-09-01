@@ -73,7 +73,7 @@ function repo_init(){
       },
       'storage-menu': '<table><tr><td><input id=rings><td>Rings</table>',
       'title': 'QjnyYap.htm',
-      'ui': '<span id=ui-rotation></span> Rotation',
+      'ui': '<span id=rotation></span> Rotation',
     });
     canvas_init();
 }
