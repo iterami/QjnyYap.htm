@@ -9,7 +9,6 @@ function load_data(){
         let inner_counter = loop_counter;
         do{
             core_entity_create({
-              'id': loop_counter + '-' + inner_counter,
               'properties': {
                 'color': '#' + core_random_hex(),
                 'height': 10,
