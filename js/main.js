@@ -48,7 +48,10 @@ function logic(){
 
     core_ui_update({
       'ids': {
-        'rotation': rotation_rate.toFixed(4),
+        'rotation': core_round({
+          'decimals': 4,
+          'number': rotation_rate,
+         }),
       },
     });
 }
