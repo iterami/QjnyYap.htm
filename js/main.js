@@ -35,10 +35,10 @@ function logic(){
       ],
       'todo': function(entity){
           core_entities[entity]['rotation'] += rotation_rate * (core_storage_data['rings'] - core_entities[entity]['layer'] + 1);
-          if(core_entities[entity]['rotation'] >= core_tau){
-              core_entities[entity]['rotation'] -= core_tau;
+          if(core_entities[entity]['rotation'] >= math_tau){
+              core_entities[entity]['rotation'] -= math_tau;
           }else if(core_entities[entity]['rotation'] < 0){
-              core_entities[entity]['rotation'] += core_tau;
+              core_entities[entity]['rotation'] += math_tau;
           }
 
           core_entities[entity]['x'] = canvas_properties['width-half'] + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
