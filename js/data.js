@@ -8,7 +8,7 @@ function load_data(){
     do{
         let inner_counter = loop_counter;
         do{
-            core_entity_create({
+            entity_create({
               'properties': {
                 'color': '#' + core_random_hex(),
                 'height': 10,

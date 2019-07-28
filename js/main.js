@@ -1,21 +1,21 @@
 'use strict';
 
 function draw_logic(){
-    core_group_modify({
+    entity_group_modify({
       'groups': [
         'canvas',
       ],
       'todo': function(entity){
           canvas_setproperties({
             'properties': {
-              'fillStyle': core_entities[entity]['color'],
+              'fillStyle': entity_entities[entity]['color'],
             },
           });
           canvas_buffer.fillRect(
-            core_entities[entity]['x'],
-            core_entities[entity]['y'],
-            core_entities[entity]['width'],
-            core_entities[entity]['height']
+            entity_entities[entity]['x'],
+            entity_entities[entity]['y'],
+            entity_entities[entity]['width'],
+            entity_entities[entity]['height']
           );
       },
     });
@@ -29,20 +29,20 @@ function logic(){
         rotation_rate -= .0001;
     }
 
-    core_group_modify({
+    entity_group_modify({
       'groups': [
         'canvas',
       ],
       'todo': function(entity){
-          core_entities[entity]['rotation'] += rotation_rate * (core_storage_data['rings'] - core_entities[entity]['layer'] + 1);
-          if(core_entities[entity]['rotation'] >= math_tau){
-              core_entities[entity]['rotation'] -= math_tau;
-          }else if(core_entities[entity]['rotation'] < 0){
-              core_entities[entity]['rotation'] += math_tau;
+          entity_entities[entity]['rotation'] += rotation_rate * (core_storage_data['rings'] - entity_entities[entity]['layer'] + 1);
+          if(entity_entities[entity]['rotation'] >= math_tau){
+              entity_entities[entity]['rotation'] -= math_tau;
+          }else if(entity_entities[entity]['rotation'] < 0){
+              entity_entities[entity]['rotation'] += math_tau;
           }
 
-          core_entities[entity]['x'] = canvas_properties['width-half'] + core_entities[entity]['layer'] * 10 * Math.cos(core_entities[entity]['rotation']);
-          core_entities[entity]['y'] = canvas_properties['height-half'] + core_entities[entity]['layer'] * 10 * Math.sin(core_entities[entity]['rotation']);
+          entity_entities[entity]['x'] = canvas_properties['width-half'] + entity_entities[entity]['layer'] * 10 * Math.cos(entity_entities[entity]['rotation']);
+          entity_entities[entity]['y'] = canvas_properties['height-half'] + entity_entities[entity]['layer'] * 10 * Math.sin(entity_entities[entity]['rotation']);
       },
     });
 
