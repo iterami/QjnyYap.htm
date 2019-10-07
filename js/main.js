@@ -59,18 +59,15 @@ function logic(){
 function repo_init(){
     core_repo_init({
       'events': {
-        'reset': {
-          'onclick': function(){
-              canvas_setmode({
-                'newgame': true,
-              });
-          },
+        'restart': {
+          'onclick': core_repo_reset,
         },
       },
       'globals': {
         'rotation_rate': 0,
       },
-      'info': '<input id=reset type=button value=Reset>',
+      'info': '<input id=restart type=button value=Restart>',
+      'reset': canvas_setmode,
       'storage': {
         'rings': 23,
       },
