@@ -1,6 +1,6 @@
 'use strict';
 
-function draw_logic(){
+function repo_drawlogic(){
     entity_group_modify({
       'groups': [
         'canvas',
@@ -21,7 +21,7 @@ function draw_logic(){
     });
 }
 
-function logic(){
+function repo_logic(){
     if(core_keys[core_storage_data['move-↑']]['state']){
         rotation_rate += .0001;
     }
