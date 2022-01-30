@@ -71,7 +71,7 @@ function repo_init(){
       'storage': {
         'rings': 23,
       },
-      'storage-menu': '<table><tr><td><input id=rings min=1 type=number><td>Rings</table>',
+      'storage-menu': '<table><tr><td><input id=rings min=1 step=any type=number><td>Rings</table>',
       'title': 'QjnyYap.htm',
       'ui': '<span id=rotation></span> Rotation',
     });
