@@ -15,7 +15,7 @@ function repo_drawlogic(){
             entity_entities[entity]['x'],
             entity_entities[entity]['y'],
             entity_entities[entity]['width'],
-            entity_entities[entity]['height']
+            entity_entities[entitay]['height']
           );
       },
     });
@@ -71,7 +71,7 @@ function repo_init(){
       'storage': {
         'rings': 23,
       },
-      'storage-menu': '<table><tr><td><input id=rings min=1 step=any type=number><td>Rings</table>',
+      'storage-menu': '<table><tr><td><input class=mini id=rings min=1 step=any type=number><td>Rings</table>',
       'title': 'QjnyYap.htm',
       'ui': '<span id=rotation></span> Rotation',
     });
