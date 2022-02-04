@@ -15,7 +15,7 @@ function repo_drawlogic(){
             entity_entities[entity]['x'],
             entity_entities[entity]['y'],
             entity_entities[entity]['width'],
-            entity_entities[entitay]['height']
+            entity_entities[entity]['height']
           );
       },
     });
