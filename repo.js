@@ -89,7 +89,7 @@ function repo_init(){
       'globals': {
         'rotation_rate': 0,
       },
-      'info': '<input id=restart type=button value=Restart>',
+      'info': '<button id=restart type=button>Restart</button>',
       'reset': canvas_setmode,
       'storage': {
         'rings': 23,
