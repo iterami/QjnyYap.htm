@@ -56,10 +56,10 @@ function repo_logic(){
       ],
       'todo': function(entity){
           entity_entities[entity]['rotation'] += rotation_rate * (core_storage_data['rings'] - entity_entities[entity]['layer'] + 1);
-          if(entity_entities[entity]['rotation'] >= math_tau){
-              entity_entities[entity]['rotation'] -= math_tau;
+          if(entity_entities[entity]['rotation'] >= 6.283185307179586){
+              entity_entities[entity]['rotation'] -= 6.283185307179586;
           }else if(entity_entities[entity]['rotation'] < 0){
-              entity_entities[entity]['rotation'] += math_tau;
+              entity_entities[entity]['rotation'] += 6.283185307179586;
           }
 
           entity_entities[entity]['x'] = canvas_properties['width-half'] + entity_entities[entity]['layer'] * 10 * Math.cos(entity_entities[entity]['rotation']);
