@@ -1,10 +1,10 @@
 'use strict';
 
 function load_data(){
-    let loop_counter = Math.max(
+    let loop_counter = Math.floor(Math.max(
       core_storage_data['rings'] - 1,
       0
-    );
+    ));
     do{
         let inner_counter = loop_counter;
         do{
@@ -55,7 +55,7 @@ function repo_logic(){
         'canvas',
       ],
       'todo': function(entity){
-          entity_entities[entity]['rotation'] += rotation_rate * (core_storage_data['rings'] - entity_entities[entity]['layer'] + 1);
+          entity_entities[entity]['rotation'] += rotation_rate * (Math.floor(core_storage_data['rings']) - entity_entities[entity]['layer'] + 1);
           if(entity_entities[entity]['rotation'] >= 6.283185307179586){
               entity_entities[entity]['rotation'] -= 6.283185307179586;
           }else if(entity_entities[entity]['rotation'] < 0){
@@ -92,7 +92,7 @@ function repo_init(){
       'storage': {
         'rings': 23,
       },
-      'storage-menu': '<table><tr><td><input class=mini id=rings min=1 step=any type=number><td>Rings</table>',
+      'storage-menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings</table>',
       'title': 'QjnyYap.htm',
       'ui': '<span id=rotation></span> Rotation',
     });
