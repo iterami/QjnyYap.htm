@@ -30,13 +30,13 @@ function repo_drawlogic(){
       ],
       'todo': function(entity){
           canvas_setproperties({
-            'fillStyle': entity_entities[entity]['color'],
+            'fillStyle': entity['color'],
           });
           canvas.fillRect(
-            entity_entities[entity]['x'],
-            entity_entities[entity]['y'],
-            entity_entities[entity]['width'],
-            entity_entities[entity]['height']
+            entity['x'],
+            entity['y'],
+            entity['width'],
+            entity['height']
           );
       },
     });
@@ -55,15 +55,15 @@ function repo_logic(){
         'canvas',
       ],
       'todo': function(entity){
-          entity_entities[entity]['rotation'] += rotation_rate * (Math.floor(core_storage_data['rings']) - entity_entities[entity]['layer'] + 1);
-          if(entity_entities[entity]['rotation'] >= 6.283185307179586){
-              entity_entities[entity]['rotation'] -= 6.283185307179586;
-          }else if(entity_entities[entity]['rotation'] < 0){
-              entity_entities[entity]['rotation'] += 6.283185307179586;
+          entity['rotation'] += rotation_rate * (Math.floor(core_storage_data['rings']) - entity['layer'] + 1);
+          if(entity['rotation'] >= 6.283185307179586){
+              entity['rotation'] -= 6.283185307179586;
+          }else if(entity['rotation'] < 0){
+              entity['rotation'] += 6.283185307179586;
           }
 
-          entity_entities[entity]['x'] = canvas_properties['width-half'] + entity_entities[entity]['layer'] * 10 * Math.cos(entity_entities[entity]['rotation']);
-          entity_entities[entity]['y'] = canvas_properties['height-half'] + entity_entities[entity]['layer'] * 10 * Math.sin(entity_entities[entity]['rotation']);
+          entity['x'] = canvas_properties['width-half'] + entity['layer'] * 10 * Math.cos(entity['rotation']);
+          entity['y'] = canvas_properties['height-half'] + entity['layer'] * 10 * Math.sin(entity['rotation']);
       },
     });
 
