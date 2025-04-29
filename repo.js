@@ -43,10 +43,12 @@ function repo_drawlogic(){
 }
 
 function repo_logic(){
-    if(core_keys[core_storage_data['move-↑']]['state']){
+    if(core_keys[core_storage_data['move-↑']]['state']
+      || core_keys[core_storage_data['move-→']]['state']){
         rotation_rate += .0001;
     }
-    if(core_keys[core_storage_data['move-↓']]['state']){
+    if(core_keys[core_storage_data['move-↓']]['state']
+      || core_keys[core_storage_data['move-←']]['state']){
         rotation_rate -= .0001;
     }
 
@@ -81,17 +83,17 @@ function repo_init(){
     core_repo_init({
       'events': {
         'restart': {
-          'onclick': core_repo_reset,
+          'onclick': canvas_setmode,
         },
       },
       'globals': {
         'rotation_rate': 0,
       },
       'info': '<button id=restart type=button>Restart</button>',
-      'reset': canvas_setmode,
       'storage': {
         'rings': 23,
       },
+      'storage-controls': true,
       'storage-menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings</table>',
       'title': 'QjnyYap.htm',
       'ui': '<span id=rotation></span> Rotation',
