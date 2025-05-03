@@ -43,14 +43,29 @@ function repo_drawlogic(){
 }
 
 function repo_logic(){
-    if(core_keys[core_storage_data['move-↑']]['state']
-      || core_keys[core_storage_data['move-→']]['state']){
-        rotation_rate += .0001;
+    let increase = 0;
+    const speed = .0001;
+    if(core_mobile){
+        if(core_mouse['down-0']){
+            if(core_mouse['x'] > canvas_properties['width-half']){
+                increase = speed;
+
+            }else{
+                increase = -speed;
+            }
+        }
+
+    }else{
+        if(core_keys[core_storage_data['move-↑']]['state']
+          || core_keys[core_storage_data['move-→']]['state']){
+            increase = speed;
+
+        }else if(core_keys[core_storage_data['move-↓']]['state']
+          || core_keys[core_storage_data['move-←']]['state']){
+            increase = -speed;
+        }
     }
-    if(core_keys[core_storage_data['move-↓']]['state']
-      || core_keys[core_storage_data['move-←']]['state']){
-        rotation_rate -= .0001;
-    }
+    rotation_rate += increase;
 
     entity_group_modify({
       'groups': [
@@ -90,13 +105,16 @@ function repo_init(){
         'rotation_rate': 0,
       },
       'info': '<button id=restart type=button>Restart</button>',
+      'mousebinds': core_mobile
+        ? {}
+        : void 0,
       'storage': {
         'rings': 23,
       },
       'storage-controls': true,
       'storage-menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings</table>',
       'title': 'QjnyYap.htm',
-      'ui': '<span id=rotation></span> Rotation',
+      'ui': '<span id=rotation></span>',
     });
     canvas_init();
 }
