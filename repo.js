@@ -46,8 +46,8 @@ function repo_logic(){
     let increase = 0;
     const speed = .0001;
     if(core_mobile){
-        if(core_mouse['down-0']){
-            if(core_mouse['x'] > canvas_properties['width-half']){
+        if(core_pointer['down-0']){
+            if(core_pointer['x'] > canvas_properties['width-half']){
                 increase = speed;
 
             }else{
@@ -105,7 +105,7 @@ function repo_init(){
         'rotation_rate': 0,
       },
       'info': '<button id=restart type=button>Restart</button>',
-      'mousebinds': core_mobile
+      'pointerbinds': core_mobile
         ? {}
         : void 0,
       'storage': {
