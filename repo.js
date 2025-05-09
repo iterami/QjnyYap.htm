@@ -45,23 +45,19 @@ function repo_drawlogic(){
 function repo_logic(){
     let increase = 0;
     const speed = .0001;
-    if(core_mobile){
-        if(core_pointer['down-0']){
-            if(core_pointer['x'] > canvas_properties['width-half']){
-                increase = speed;
+    if(core_keys[core_storage_data['move-↑']]['state']
+      || core_keys[core_storage_data['move-→']]['state']){
+        increase = speed;
 
-            }else{
-                increase = -speed;
-            }
-        }
-
-    }else{
-        if(core_keys[core_storage_data['move-↑']]['state']
-          || core_keys[core_storage_data['move-→']]['state']){
+    }else if(core_keys[core_storage_data['move-↓']]['state']
+      || core_keys[core_storage_data['move-←']]['state']){
+        increase = -speed;
+    }
+    if(core_pointer['down-0']){
+        if(core_pointer['x'] > canvas_properties['width-half']){
             increase = speed;
 
-        }else if(core_keys[core_storage_data['move-↓']]['state']
-          || core_keys[core_storage_data['move-←']]['state']){
+        }else{
             increase = -speed;
         }
     }
@@ -105,9 +101,7 @@ function repo_init(){
         'rotation_rate': 0,
       },
       'info': '<button id=restart type=button>Restart</button>',
-      'pointerbinds': core_mobile
-        ? {}
-        : void 0,
+      'pointerbinds': {},
       'storage': {
         'rings': 23,
       },
