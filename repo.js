@@ -42,6 +42,29 @@ function repo_drawlogic(){
     });
 }
 
+function repo_init(){
+    core_repo_init({
+      'events': {
+        'restart': {
+          'onclick': canvas_setmode,
+        },
+      },
+      'globals': {
+        'rotation_rate': 0,
+      },
+      'info': '<button id=restart type=button>Restart</button>',
+      'pointerbinds': {},
+      'storage': {
+        'rings': 23,
+      },
+      'storage-controls': true,
+      'storage-menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings</table>',
+      'title': 'QjnyYap.htm',
+      'ui': '<span id=rotation></span>',
+    });
+    canvas_init();
+}
+
 function repo_logic(){
     let increase = 0;
     const speed = .0001;
@@ -88,27 +111,4 @@ function repo_logic(){
          }),
       },
     });
-}
-
-function repo_init(){
-    core_repo_init({
-      'events': {
-        'restart': {
-          'onclick': canvas_setmode,
-        },
-      },
-      'globals': {
-        'rotation_rate': 0,
-      },
-      'info': '<button id=restart type=button>Restart</button>',
-      'pointerbinds': {},
-      'storage': {
-        'rings': 23,
-      },
-      'storage-controls': true,
-      'storage-menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings</table>',
-      'title': 'QjnyYap.htm',
-      'ui': '<span id=rotation></span>',
-    });
-    canvas_init();
 }
