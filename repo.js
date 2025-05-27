@@ -62,7 +62,9 @@ function repo_init(){
       'title': 'QjnyYap.htm',
       'ui': '<span id=rotation></span>',
     });
-    canvas_init();
+    canvas_init({
+      'cursor': 'pointer',
+    });
 }
 
 function repo_logic(){
