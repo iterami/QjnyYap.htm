@@ -2,7 +2,7 @@
 
 function load_data(){
     let loop_counter = Math.floor(Math.max(
-      core_storage_data['rings'] - 1,
+      core_storage_data.rings - 1,
       0
     ));
     do{
@@ -30,13 +30,13 @@ function repo_drawlogic(){
       ],
       'todo': function(entity){
           canvas_setproperties({
-            'fillStyle': entity['color'],
+            'fillStyle': entity.color,
           });
           canvas.fillRect(
-            entity['x'],
-            entity['y'],
-            entity['width'],
-            entity['height']
+            entity.x,
+            entity.y,
+            entity.width,
+            entity.height
           );
       },
     });
@@ -70,16 +70,16 @@ function repo_init(){
 function repo_logic(){
     let increase = 0;
     const speed = .0001;
-    if(core_keys[core_storage_data['move-↑']]['state']
-      || core_keys[core_storage_data['move-→']]['state']){
+    if(core_keys[core_storage_data['move-↑']].state
+      || core_keys[core_storage_data['move-→']].state){
         increase = speed;
 
-    }else if(core_keys[core_storage_data['move-↓']]['state']
-      || core_keys[core_storage_data['move-←']]['state']){
+    }else if(core_keys[core_storage_data['move-↓']].state
+      || core_keys[core_storage_data['move-←']].state){
         increase = -speed;
     }
     if(core_pointer['down-0']){
-        if(core_pointer['x'] > canvas_properties['width-half']){
+        if(core_pointer.x > canvas_properties.width_half){
             increase = speed;
 
         }else{
@@ -93,15 +93,15 @@ function repo_logic(){
         'canvas',
       ],
       'todo': function(entity){
-          entity['rotation'] += rotation_rate * (Math.floor(core_storage_data['rings']) - entity['layer'] + 1);
-          if(entity['rotation'] >= 6.283185307179586){
-              entity['rotation'] -= 6.283185307179586;
-          }else if(entity['rotation'] < 0){
-              entity['rotation'] += 6.283185307179586;
+          entity.rotation += rotation_rate * (Math.floor(core_storage_data.rings) - entity.layer + 1);
+          if(entity.rotation >= 6.283185307179586){
+              entity.rotation -= 6.283185307179586;
+          }else if(entity.rotation < 0){
+              entity.rotation += 6.283185307179586;
           }
 
-          entity['x'] = canvas_properties['width-half'] + entity['layer'] * 10 * Math.cos(entity['rotation']);
-          entity['y'] = canvas_properties['height-half'] + entity['layer'] * 10 * Math.sin(entity['rotation']);
+          entity.x = canvas_properties.width_half + entity.layer * 10 * Math.cos(entity.rotation);
+          entity.y = canvas_properties.height_half + entity.layer * 10 * Math.sin(entity.rotation);
       },
     });
 
