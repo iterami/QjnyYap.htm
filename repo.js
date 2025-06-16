@@ -77,14 +77,11 @@ function repo_logic(){
     }else if(core_keys[core_storage_data['move-↓']].state
       || core_keys[core_storage_data['move-←']].state){
         increase = -speed;
-    }
-    if(core_pointer['down-0']){
-        if(core_pointer.x > canvas_properties.width_half){
-            increase = speed;
 
-        }else{
-            increase = -speed;
-        }
+    }else if(core_pointer['down-0']){
+        increase = core_pointer.x > canvas_properties.width_half
+          ? speed
+          : -speed;
     }
     rotation_rate += increase;
 
