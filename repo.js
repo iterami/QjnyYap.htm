@@ -57,7 +57,7 @@ function repo_init(){
       'storage': {
         'rings': 23,
       },
-      'storage-controls': true,
+      'storage_controls': true,
       'storage-menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings</table>',
       'title': 'QjnyYap.htm',
       'ui': '<span id=rotation></span>',
