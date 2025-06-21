@@ -78,7 +78,7 @@ function repo_logic(){
       || core_keys[core_storage_data['move-←']].state){
         increase = -speed;
 
-    }else if(core_pointer['down-0']){
+    }else if(core_pointer.down_0){
         increase = core_pointer.x > canvas_properties.width_half
           ? speed
           : -speed;
