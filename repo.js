@@ -70,12 +70,12 @@ function repo_init(){
 function repo_logic(){
     let increase = 0;
     const speed = .0001;
-    if(core_keys[core_storage_data['move-↑']].state
-      || core_keys[core_storage_data['move-→']].state){
+    if(core_keys[core_storage_data.move_up].state
+      || core_keys[core_storage_data.move_right].state){
         increase = speed;
 
-    }else if(core_keys[core_storage_data['move-↓']].state
-      || core_keys[core_storage_data['move-←']].state){
+    }else if(core_keys[core_storage_data.move_down].state
+      || core_keys[core_storage_data.move_left].state){
         increase = -speed;
 
     }else if(core_pointer.down_0){
