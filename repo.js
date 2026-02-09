@@ -64,7 +64,7 @@ function repo_load(){
         }while(inner_counter--);
     }while(loop_counter--);
 
-    rotation_rate = .005;
+    rotation_rate = .003;
 }
 
 function repo_logic(){
