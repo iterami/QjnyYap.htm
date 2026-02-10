@@ -1,21 +1,35 @@
 'use strict';
 
+function draw_entity(entity){
+    canvas_setproperties({
+      'fillStyle': entity.color,
+    });
+    canvas.fillRect(
+      entity.x,
+      entity.y,
+      entity.width,
+      entity.height
+    );
+}
+
+function move_entity(entity){
+    entity.rotation += rotation_rate * (Math.floor(core_storage_data.rings) - entity.layer + 1);
+    if(entity.rotation >= 6.283185307179586){
+        entity.rotation -= 6.283185307179586;
+    }else if(entity.rotation < 0){
+        entity.rotation += 6.283185307179586;
+    }
+
+    entity.x = canvas_properties.width_half + entity.layer * 10 * Math.cos(entity.rotation);
+    entity.y = canvas_properties.height_half + entity.layer * 10 * Math.sin(entity.rotation);
+}
+
 function repo_drawlogic(){
     entity_group_modify({
       'groups': [
         'canvas',
       ],
-      'todo': function(entity){
-          canvas_setproperties({
-            'fillStyle': entity.color,
-          });
-          canvas.fillRect(
-            entity.x,
-            entity.y,
-            entity.width,
-            entity.height
-          );
-      },
+      'todo': draw_entity,
     });
 }
 
@@ -89,17 +103,7 @@ function repo_logic(){
       'groups': [
         'canvas',
       ],
-      'todo': function(entity){
-          entity.rotation += rotation_rate * (Math.floor(core_storage_data.rings) - entity.layer + 1);
-          if(entity.rotation >= 6.283185307179586){
-              entity.rotation -= 6.283185307179586;
-          }else if(entity.rotation < 0){
-              entity.rotation += 6.283185307179586;
-          }
-
-          entity.x = canvas_properties.width_half + entity.layer * 10 * Math.cos(entity.rotation);
-          entity.y = canvas_properties.height_half + entity.layer * 10 * Math.sin(entity.rotation);
-      },
+      'todo': move_entity,
     });
 
     core_ui_update({
