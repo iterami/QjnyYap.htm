@@ -20,7 +20,7 @@ function move_entity(entity){
         entity.rotation += 6.283185307179586;
     }
 
-    const layer = entity.layer * 10;
+    const layer = entity.layer * core_storage_data.spread;
     entity.x = canvas_properties.width_half + layer * Math.cos(entity.rotation);
     entity.y = canvas_properties.height_half + layer * Math.sin(entity.rotation);
 }
@@ -48,9 +48,11 @@ function repo_init(){
       'pointerbinds': {},
       'storage': {
         'rings': 23,
+        'spread': 10,
       },
       'storage_controls': true,
-      'storage_menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings</table>',
+      'storage_menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings'
+        + '<tr><td><input class=mini id=spread step=any type=number><td>Spread</table>',
       'title': 'QjnyYap.htm',
       'ui': '<span id=rotation></span>',
     });
