@@ -13,15 +13,16 @@ function draw_entity(entity){
 }
 
 function move_entity(entity){
-    entity.rotation += rotation_rate * (Math.floor(core_storage_data.rings) - entity.layer + 1);
+    entity.rotation += rotation_rate * (core_storage_data.rings - entity.layer + 1);
     if(entity.rotation >= 6.283185307179586){
         entity.rotation -= 6.283185307179586;
     }else if(entity.rotation < 0){
         entity.rotation += 6.283185307179586;
     }
 
-    entity.x = canvas_properties.width_half + entity.layer * 10 * Math.cos(entity.rotation);
-    entity.y = canvas_properties.height_half + entity.layer * 10 * Math.sin(entity.rotation);
+    const layer = entity.layer * 10;
+    entity.x = canvas_properties.width_half + layer * Math.cos(entity.rotation);
+    entity.y = canvas_properties.height_half + layer * Math.sin(entity.rotation);
 }
 
 function repo_drawlogic(){
