@@ -43,7 +43,7 @@ function repo_init(){
       'globals': {
         'rotation_rate': 0,
       },
-      'info': '<button id=restart type=button>Restart</button>',
+      'info': '<button class=medium id=restart type=button>Restart</button>',
       'pointerbinds': {},
       'storage': {
         'rings': 23,
