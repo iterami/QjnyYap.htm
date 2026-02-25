@@ -62,26 +62,21 @@ function repo_init(){
 }
 
 function repo_load(){
-    let loop_counter = Math.floor(Math.max(
-      core_storage_data.rings - 1,
-      0
-    ));
-    do{
-        let inner_counter = loop_counter;
-        do{
+    rotation_rate = .003;
+
+    for(let i = 0; i < core_storage_data.rings; i++){
+        for(let j = 0; j < i; j++){
             entity_create({
               'properties': {
                 'color': '#' + core_random_hex(),
                 'height': 10,
-                'layer': loop_counter + 1,
-                'rotation': inner_counter,
+                'layer': i + 1,
+                'rotation': j,
                 'width': 10,
               },
             });
-        }while(inner_counter--);
-    }while(loop_counter--);
-
-    rotation_rate = .003;
+        }
+    }
 }
 
 function repo_logic(){
