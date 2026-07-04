@@ -54,7 +54,7 @@ function repo_init(){
       'storage_menu': '<table><tr><td><input class=mini id=rings min=1 step=1 type=number><td>Rings'
         + '<tr><td><input class=mini id=spread step=any type=number><td>Spread</table>',
       'title': 'QjnyYap.htm',
-      'ui': '<span id=rotation></span>',
+      'ui': ' <span id=rotation></span>',
     });
     canvas_init({
       'cursor': 'pointer',
